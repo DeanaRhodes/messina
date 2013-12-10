@@ -1,0 +1,13 @@
+article
+	img A1qv
+	h1 Big Sir Dining Table
+	p
+	ul
+		li
+		li
+		li
+		li
+		li
+	form
+		p $1499
+		input type=submit
