@@ -112,18 +112,47 @@
 			</p>
 		</div>
 	</footer>
+
+	<script id="quickview-template" type="text/template">
+			<article id="quickview">
+				<h1>Light Brown Two Piece Table</h1>
+				<img src="images/A1qv.jpg" alt="Light brown two piece table" />
+				<p> Like its namesake, this casual, contemporary dining group is big, bold and natural. The rustic beauty of Big Sur lies in its solid European white oak with naturally occurring splits, cracks and knots.</p>
+				<ul>
+					<li>65 x 37.5 x 30</li>
+					<li>Solid white oak</li>
+					<li>Seats up to six</li>
+					<li>Made in Poland</li>
+				</ul>
+				<form action="input">
+					<p class="quickview-price"> $1400 </p>
+					<input type="hidden" name="sku" value="lkdf10"/>
+					<button type="submit" value="Add to Cart" class="button">Add to Cart</button>
+				</form>
+			</article>
+	</script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+	</script>
+	<script>
+		var $buttons = $('#product-list span');
+		console.log($buttons);
+		//console.log($buttons);
+		$buttons.click(function (event) {
+			/* "event bubbling" would have this event "bubble" up to the anchor element, so prevent that default behavior */
+			event.preventDefault();
+
+			//console.log(event);
+
+			var html = $('#quickview-template').html();
+			/*insert the html into the DOM, "after" the product appending*/
+			$('#product-list').after(html);
+		});
+
+		/*jquery event delegation" */
+		$('body').on('mouseout', "quickview", function{
+			$("#quickview").remove();
+		});
+
+	</script>
 	</body>
 </html>
-				<div id="content-div">
-					<img src="images/A1qv.png" alt="Light brown two piece table" />
-					<h1>Light Brown Two Piece Table</h1>
-					<p> Like its namesake, this casual, contemporary dining group is big, bold and natural. The rustic beauty of Big Sur lies in its solid European white oak with naturally occurring splits, cracks and knots.</p>
-					<ul>
-						<li>65" x 37.5" x 30"</li>
-						<li>Solid white oak</li>
-						<li>Seats up to six</li>
-						<li>Made in Poland</li>
-					</ul>
-					<p> $1400 </p>
-					<input type=submit>
-				</div>
